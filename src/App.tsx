@@ -1,8 +1,17 @@
-import React from 'react';
-import Events from './demo/Events';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import Lifecycle from './demo/Lifecycle';
 
 const App: React.FC = () => {
-  return <Events />;
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(false);
+    }, 2_000);
+  });
+
+  return show ? <Lifecycle /> : <div>Hallo Welt</div>;
 };
 
 export default App;

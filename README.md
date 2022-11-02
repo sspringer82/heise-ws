@@ -48,3 +48,12 @@ Voraussetzungen:
   - if/else und Rückgabewert
   - if/else in Kombination mit Variablen und JSX Strukturen
   - Inline Bedinungen mit ?:-Operator
+
+# useEffect
+
+`useEffect(effectFn, dependencies)`
+
+- dependencies:
+  - []: effectFn wird nur einmalig beim initialen Einbinden getriggert
+  - [x]: effectFn wird nur getriggert wenn sich x ändert
+  - keine dependencies: effectFn wird bei jeder Aktualisierung der Komponente getriggert
