@@ -1,8 +1,8 @@
 import React from 'react';
-import State from './demo/State';
+import Events from './demo/Events';
 
 const App: React.FC = () => {
-  return <State />;
+  return <Events />;
 };
 
 export default App;
