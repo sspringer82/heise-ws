@@ -13,16 +13,29 @@ const klaus: Person = {
 
 // export default function App() { ... }
 const App: React.FC = () => {
-  function getName() {
-    return 'Lisa';
+  const list = ['a', 'b', 'c'];
+
+  let content = <div>Hallo Welt</div>;
+  if (true) {
+    content = <div>Hallo Mond</div>;
   }
 
-  return (
-    <div>
-      Hallo {1 + 2} {'foo'} {getName()} {klaus.firstName + ' ' + klaus.lastName}
-      {true ? <div>wahr</div> : <div>falsch</div>}
-    </div>
-  );
+  const condition = true;
+  if (condition) {
+    return (
+      <div>
+        {content}
+        <div>
+          {list.map((listItem) => {
+            return <div key={listItem}>{listItem}</div>;
+          })}
+        </div>
+        {condition ? <div>Hallo</div> : <div>Tschüss</div>}
+      </div>
+    );
+  } else {
+    return <div>Oh no!</div>;
+  }
 };
 
 export default App;

@@ -34,3 +34,12 @@ Voraussetzungen:
 - 1 Komponente pro Datei
 - Der Komponentenname beginnt mit einem Großbuchstaben
 - Die Komponente wird in JSX als Tag eingebunden (`<App />`)
+
+# Schleifen und Bedingungen
+
+- Schleifen mit Array + Map
+  - Jedes Top-level-Element benötigt eine eindeutiges key-Attribut
+- Bedingungen:
+  - if/else und Rückgabewert
+  - if/else in Kombination mit Variablen und JSX Strukturen
+  - Inline Bedinungen mit ?:-Operator
