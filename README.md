@@ -25,3 +25,12 @@ Voraussetzungen:
 - React Blog: https://reactjs.org/blog/
 - Changelog: https://github.com/facebook/react/blob/main/CHANGELOG.md
 - https://github.com/timarney/react-app-rewired
+- https://prettier.io/
+
+# Komponenten
+
+- Sind einfache JS/TS Funktionen
+- Geben eine JSX-Struktur zurück
+- 1 Komponente pro Datei
+- Der Komponentenname beginnt mit einem Großbuchstaben
+- Die Komponente wird in JSX als Tag eingebunden (`<App />`)
