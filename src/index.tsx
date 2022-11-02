@@ -11,6 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
+    <hr />
     <List />
   </React.StrictMode>
 );
