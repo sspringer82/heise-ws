@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Person from './Person';
 
 const initialPersons: Person[] = [
@@ -26,6 +25,15 @@ const initialPersons: Person[] = [
 const List: React.FC = () => {
   const [persons, setPersons] = useState<Person[]>(initialPersons);
 
+  function handleDelete(id: number): void {
+    setPersons((prevPersons) => {
+      const newPersons = prevPersons.filter(
+        (prevPerson) => prevPerson.id !== id
+      );
+      return newPersons;
+    });
+  }
+
   if (persons.length === 0) {
     return <div>Es sind aktuell keine Datensätze vorhanden</div>;
   }
@@ -41,6 +49,7 @@ const List: React.FC = () => {
           <th>Street</th>
           <th>City</th>
           <th>Zip code</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -54,6 +63,9 @@ const List: React.FC = () => {
               <td>{person.street}</td>
               <td>{person.city}</td>
               <td>{person.zipCode}</td>
+              <td>
+                <button onClick={() => handleDelete(person.id)}>löschen</button>
+              </td>
             </tr>
           );
         })}

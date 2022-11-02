@@ -26,6 +26,11 @@ Voraussetzungen:
 - Changelog: https://github.com/facebook/react/blob/main/CHANGELOG.md
 - https://github.com/timarney/react-app-rewired
 - https://prettier.io/
+- Immutability
+  - Immutabilit-Helper: https://github.com/kolodny/immutability-helper
+  - Immer: https://github.com/immerjs/immer
+  - Immutable.js: https://immutable-js.com/
+- https://developer.mozilla.org/en-US/
 
 # Komponenten
 
