@@ -2,39 +2,13 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import Person from './Person';
 
-const personData: Person[] = [
-  {
-    id: 1,
-    firstName: 'Klaus',
-    lastName: 'Müller',
-    birthdate: '1970-01-01T01:00:00Z',
-    street: 'Main street 5',
-    city: 'Democity',
-    zipCode: '12345',
-  },
-  {
-    id: 2,
-    firstName: 'Lisa',
-    lastName: 'Müller',
-    birthdate: '1970-01-01T01:00:00Z',
-    street: 'Main street 5',
-    city: 'Democity',
-    zipCode: '12345',
-  },
-];
-
 const List: React.FC = () => {
   const [persons, setPersons] = useState<Person[]>([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      // State überschreiben
-      setPersons(personData);
-      // State aktualisieren
-      // setPersons((prevPersons) => {
-      //   return prevPersons.concat(personData);
-      // });
-    }, 1000);
+    fetch('http://localhost:3001/users')
+      .then((response) => response.json())
+      .then((data) => setPersons(data));
   }, []);
 
   function handleDelete(id: number): void {
