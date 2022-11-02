@@ -1,27 +1,30 @@
 import React from 'react';
+import { useState } from 'react';
 import Person from './Person';
 
+const initialPersons: Person[] = [
+  {
+    id: 1,
+    firstName: 'Klaus',
+    lastName: 'Müller',
+    birthdate: '1970-01-01T01:00:00Z',
+    street: 'Main street 5',
+    city: 'Democity',
+    zipCode: '12345',
+  },
+  {
+    id: 2,
+    firstName: 'Lisa',
+    lastName: 'Müller',
+    birthdate: '1970-01-01T01:00:00Z',
+    street: 'Main street 5',
+    city: 'Democity',
+    zipCode: '12345',
+  },
+];
+
 const List: React.FC = () => {
-  const persons: Person[] = [
-    {
-      id: 1,
-      firstName: 'Klaus',
-      lastName: 'Müller',
-      birthdate: '1970-01-01T01:00:00Z',
-      street: 'Main street 5',
-      city: 'Democity',
-      zipCode: '12345',
-    },
-    {
-      id: 2,
-      firstName: 'Lisa',
-      lastName: 'Müller',
-      birthdate: '1970-01-01T01:00:00Z',
-      street: 'Main street 5',
-      city: 'Democity',
-      zipCode: '12345',
-    },
-  ];
+  const [persons, setPersons] = useState<Person[]>(initialPersons);
 
   if (persons.length === 0) {
     return <div>Es sind aktuell keine Datensätze vorhanden</div>;
