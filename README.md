@@ -54,6 +54,12 @@ Voraussetzungen:
 `useEffect(effectFn, dependencies)`
 
 - dependencies:
+
   - []: effectFn wird nur einmalig beim initialen Einbinden getriggert
   - [x]: effectFn wird nur getriggert wenn sich x ändert
   - keine dependencies: effectFn wird bei jeder Aktualisierung der Komponente getriggert
+
+- Lifecylce-phasen:
+  - mount (einhängen): `useEffect(() => {}, [])`
+  - update: `useEffect(() => {})` oder `useEffect(() => {}, [dep])`
+  - unmount (aushängen): `useEffect(() => {... return () => {...}})`
