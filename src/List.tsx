@@ -16,11 +16,19 @@ const List: React.FC = () => {
   }, []);
 
   function handleDelete(id: number): void {
-    setPersons((prevPersons) => {
-      const newPersons = prevPersons.filter(
-        (prevPerson) => prevPerson.id !== id
-      );
-      return newPersons;
+    fetch(`http://localhost:3001/users/${id}`, {
+      method: 'DELETE',
+    }).then((response) => {
+      if (response.ok) {
+        setPersons((prevPersons) => {
+          const newPersons = prevPersons.filter(
+            (prevPerson) => prevPerson.id !== id
+          );
+          return newPersons;
+        });
+      } else {
+        alert('Oh no!');
+      }
     });
   }
 
