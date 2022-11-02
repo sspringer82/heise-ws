@@ -4,11 +4,15 @@ import Person from './Person';
 
 const List: React.FC = () => {
   const [persons, setPersons] = useState<Person[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetch('http://localhost:3001/users')
       .then((response) => response.json())
-      .then((data) => setPersons(data));
+      .then((data) => {
+        setPersons(data);
+        setLoading(false);
+      });
   }, []);
 
   function handleDelete(id: number): void {
@@ -18,6 +22,10 @@ const List: React.FC = () => {
       );
       return newPersons;
     });
+  }
+
+  if (loading === true) {
+    return <div>...lade Daten</div>;
   }
 
   if (persons.length === 0) {
