@@ -2,15 +2,30 @@ import React from 'react';
 import Person from './Person';
 
 const List: React.FC = () => {
-  const person: Person = {
-    id: 1,
-    firstName: 'Klaus',
-    lastName: 'Müller',
-    birthdate: '1970-01-01T01:00:00Z',
-    street: 'Main street 5',
-    city: 'Democity',
-    zipCode: '12345',
-  };
+  const persons: Person[] = [
+    {
+      id: 1,
+      firstName: 'Klaus',
+      lastName: 'Müller',
+      birthdate: '1970-01-01T01:00:00Z',
+      street: 'Main street 5',
+      city: 'Democity',
+      zipCode: '12345',
+    },
+    {
+      id: 2,
+      firstName: 'Lisa',
+      lastName: 'Müller',
+      birthdate: '1970-01-01T01:00:00Z',
+      street: 'Main street 5',
+      city: 'Democity',
+      zipCode: '12345',
+    },
+  ];
+
+  if (persons.length === 0) {
+    return <div>Es sind aktuell keine Datensätze vorhanden</div>;
+  }
 
   return (
     <table>
@@ -26,15 +41,19 @@ const List: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{person.id}</td>
-          <td>{person.firstName}</td>
-          <td>{person.lastName}</td>
-          <td>{person.birthdate}</td>
-          <td>{person.street}</td>
-          <td>{person.city}</td>
-          <td>{person.zipCode}</td>
-        </tr>
+        {persons.map((person) => {
+          return (
+            <tr key={person.id}>
+              <td>{person.id}</td>
+              <td>{person.firstName}</td>
+              <td>{person.lastName}</td>
+              <td>{person.birthdate}</td>
+              <td>{person.street}</td>
+              <td>{person.city}</td>
+              <td>{person.zipCode}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
