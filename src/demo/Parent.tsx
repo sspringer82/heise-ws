@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-// Child.tsx
+// ------- Child.tsx -------
 type Props = {
   value: string;
   onDelete: (id: string) => void;
@@ -16,7 +16,7 @@ const Child: React.FC<Props> = ({ value, onDelete }) => {
   );
 };
 
-// Parent.tsx
+// ------- Parent.tsx -------
 const Parent: React.FC = () => {
   const [state, setState] = useState<string[]>(['a', 'b', 'c']);
 

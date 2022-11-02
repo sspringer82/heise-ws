@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import ListItem from './ListItem';
 import Person from './Person';
 
 const List: React.FC = () => {
@@ -56,20 +57,7 @@ const List: React.FC = () => {
       </thead>
       <tbody>
         {persons.map((person) => {
-          return (
-            <tr key={person.id}>
-              <td>{person.id}</td>
-              <td>{person.firstName}</td>
-              <td>{person.lastName}</td>
-              <td>{person.birthdate}</td>
-              <td>{person.street}</td>
-              <td>{person.city}</td>
-              <td>{person.zipCode}</td>
-              <td>
-                <button onClick={() => handleDelete(person.id)}>löschen</button>
-              </td>
-            </tr>
-          );
+          return <ListItem person={person} onDelete={handleDelete} />;
         })}
       </tbody>
     </table>

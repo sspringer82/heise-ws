@@ -13,7 +13,7 @@ Voraussetzungen:
 ## Backend
 
 1. `npm install @faker-js/faker json-server`
-2. `scripts` aus der `package.json` aus dem Repo kopieren
+2. `scripts` (data, prebackend, backend) aus der `package.json` aus dem Repo kopieren
 3. die `index.js` aus dem Wurzelverzeichnis kopieren
 4. `npm run backend`
 
