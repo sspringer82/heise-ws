@@ -14,7 +14,8 @@ Voraussetzungen:
 
 1. `npm install @faker-js/faker json-server`
 2. `scripts` aus der `package.json` aus dem Repo kopieren
-3. `npm run backend`
+3. die `index.js` aus dem Wurzelverzeichnis kopieren
+4. `npm run backend`
 
 # Links
 
@@ -37,6 +38,7 @@ Voraussetzungen:
   - Immer: https://github.com/immerjs/immer
   - Immutable.js: https://immutable-js.com/
 - https://developer.mozilla.org/en-US/
+- https://overreacted.io/
 
 # Komponenten
 
