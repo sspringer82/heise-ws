@@ -9,9 +9,13 @@ const App: React.FC = () => {
     setTimeout(() => {
       setShow(false);
     }, 2_000);
-  });
+  }, []);
 
-  return show ? <Lifecycle /> : <div>Hallo Welt</div>;
+  if (show === true) {
+    return <Lifecycle />;
+  } else {
+    return <div>Hallo Welt</div>;
+  }
 };
 
 export default App;

@@ -12,14 +12,12 @@ const Lifecycle: React.FC = () => {
 
     // Serverkommunikation (initiales datenladen), Websocket connection öffnen, Timeout setzen
     const intervalHandle = setInterval(() => {
-      console.log('xxx');
       setState((prevState) => prevState + 1);
     }, 1000);
 
     return () => {
       console.log('cleanup routine');
-
-      // clearInterval(intervalHandle);
+      clearInterval(intervalHandle);
     };
   }, []);
 
