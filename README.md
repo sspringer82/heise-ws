@@ -10,6 +10,12 @@ Voraussetzungen:
 3. `npm start`
 4. Browser öffnen mit http://localhost:3000
 
+## Backend
+
+1. `npm install @faker-js/faker json-server`
+2. `scripts` aus der `package.json` aus dem Repo kopieren
+3. `npm run backend`
+
 # Links
 
 - Initialisierung

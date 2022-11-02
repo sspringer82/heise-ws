@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import Person from './Person';
 
-const initialPersons: Person[] = [
+const personData: Person[] = [
   {
     id: 1,
     firstName: 'Klaus',
@@ -23,7 +24,18 @@ const initialPersons: Person[] = [
 ];
 
 const List: React.FC = () => {
-  const [persons, setPersons] = useState<Person[]>(initialPersons);
+  const [persons, setPersons] = useState<Person[]>([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      // State überschreiben
+      setPersons(personData);
+      // State aktualisieren
+      // setPersons((prevPersons) => {
+      //   return prevPersons.concat(personData);
+      // });
+    }, 1000);
+  }, []);
 
   function handleDelete(id: number): void {
     setPersons((prevPersons) => {

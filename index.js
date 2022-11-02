@@ -1,11 +1,16 @@
-const arr = [1, 2, 3];
-const [one, , three] = arr;
+const { writeFileSync } = require('node:fs');
+const { faker } = require('@faker-js/faker');
 
-const one = arr[0];
-const one = arr[1];
+const users = new Array(1000).fill('').map((value, index) => ({
+  id: index + 1,
+  firstName: faker.name.firstName(),
+  lastName: faker.name.lastName(),
+  birthdate: faker.date.birthdate(),
+  street: faker.address.streetAddress(true),
+  city: faker.address.cityName(),
+  zipCode: faker.address.zipCode(),
+}));
 
-const obj = { a: 'a', b: 'b', c: 'c' };
-const { a: myA, c } = obj;
+const data = { users };
 
-const a = obj.a;
-const c = obj.c;
+writeFileSync('data.json', JSON.stringify(data));
