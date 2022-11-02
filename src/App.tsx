@@ -1,5 +1,4 @@
-// export default function App() { ... }
-
+import React from 'react';
 import Person from './Person';
 
 const klaus: Person = {
@@ -12,6 +11,7 @@ const klaus: Person = {
   zipCode: '12345',
 };
 
+// export default function App() { ... }
 const App: React.FC = () => {
   function getName() {
     return 'Lisa';
