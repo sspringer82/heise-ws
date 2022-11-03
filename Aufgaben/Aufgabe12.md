@@ -6,3 +6,8 @@ Erzeuge einen `PersonContext`, in dem die Personendaten gespeichert werden und a
 - erzeuge einen `PersonContext` mit `createContext` (typ: `[Person[], Dispatch<SetStateAction<Person[]>>]`) initalwert: `[[], () => {}]`
 - erzeuge + exportiere eine neue Komponente `PersonProvider`, die einen lokalen State definiert (typ: `Person[]`) und diesen über den `value` der `PersonContext.Provider`-Komponente verfügbar macht
 - erzeuge einen neuen custom hook `usePersonContext` in dem du über `useContext` auf den `PersonContext` zugreifst und den Wert des Contextes zurückgibst.
+- ersetze in `usePerson` den `useState` aufruf durch `usePersonContext`
+
+# Entkopplung von List und Form
+
+- Extrahiere die `Form` Komponente aus der `List`-Komponente und platziere beide nebeneinander im `PersonProvider`. Sorge dafür dass beide den Context verwenden und unabhängig voneinander funktionieren.
