@@ -24,4 +24,41 @@ const Lifecycle: React.FC = () => {
   return <div>Die Zahl ist: {state} </div>;
 };
 
+function Initial() {
+  useEffect(() => {
+    console.log('mount');
+  }, []);
+
+  return <div></div>;
+}
+
+function Update1() {
+  useEffect(() => {
+    console.log('update on every change');
+  });
+
+  return <div></div>;
+}
+
+function Update2() {
+  const xyz = 'xxx';
+  useEffect(() => {
+    console.log('update only if xyz changes');
+  }, [xyz]);
+
+  return <div></div>;
+}
+
+function Unmount() {
+  useEffect(() => {
+    // ressourcen allkoation
+    return () => {
+      // ressource freigeben
+      console.log('cleanup');
+    };
+  }, []);
+
+  return <div></div>;
+}
+
 export default Lifecycle;

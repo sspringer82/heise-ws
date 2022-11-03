@@ -39,6 +39,7 @@ Voraussetzungen:
   - Immutable.js: https://immutable-js.com/
 - https://developer.mozilla.org/en-US/
 - https://overreacted.io/
+- https://reactjs.org/docs/hooks-rules.html
 
 # Komponenten
 
@@ -67,7 +68,12 @@ Voraussetzungen:
   - [x]: effectFn wird nur getriggert wenn sich x ändert
   - keine dependencies: effectFn wird bei jeder Aktualisierung der Komponente getriggert
 
-- Lifecylce-phasen:
+- Lifecylce-phasen (pro Komponenteninstanz):
   - mount (einhängen): `useEffect(() => {}, [])`
   - update: `useEffect(() => {})` oder `useEffect(() => {}, [dep])`
   - unmount (aushängen): `useEffect(() => {... return () => {...}})`
+
+# Custom Hooks
+
+- Wiederverwendbarkeit von "Komponentenlogik"
+- Auslagern von Logik aus einer Komponente
