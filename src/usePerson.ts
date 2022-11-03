@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import Person from './Person';
+import Person, { FormPerson } from './Person';
 
 type ReturnType = {
   loading: boolean;
   persons: Person[];
   handleDelete: (id: number) => void;
+  handleAdd: (newPerson: FormPerson) => void;
 };
 
 export default function usePerson(): ReturnType {
@@ -37,9 +38,27 @@ export default function usePerson(): ReturnType {
     });
   }
 
+  function handleAdd(person: FormPerson) {
+    fetch('http://localhost:3001/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(person),
+    })
+      .then((response) => response.json())
+      .then((newPerson) => {
+        setPersons((prevPersons) => {
+          const personsClone = [...prevPersons];
+          personsClone.push(newPerson);
+          return personsClone;
+        });
+        setPersons((prevPersons) => [...prevPersons, newPerson]);
+      });
+  }
+
   return {
     loading,
     persons,
     handleDelete,
+    handleAdd,
   };
 }
