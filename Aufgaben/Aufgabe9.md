@@ -10,8 +10,9 @@ Binde die `Form` Komponente als Kindkomponente der `List` Komponente ein.
 ```ts
 fetch('http://localhost:3001/users', {
   method: 'POST',
-  headers: 'Content-Type': 'application/json',
-  body: JSON.stringify(person)})
-.then(response => response.json())
-.then(newPerson => console.log(newPerson))
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(person),
+})
+  .then((response) => response.json())
+  .then((newPerson) => console.log(newPerson));
 ```
