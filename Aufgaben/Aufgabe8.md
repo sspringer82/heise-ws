@@ -10,10 +10,8 @@ Lagere die personenbezogene-Funktionalität aus der `List`-Komponente aus.
   - definiere den Rückgabewert der Custom Hook-Funktion, sodass die Komponente Zugriff auf die benötigten Strukturen erhält
 
 ```ts
-type ReturnValue = [
-  Person[],
-  (item) => void;
-];
+type ReturnValue = [Person[], (item: Person) => void];
+
 function usePerson(): ReturnValue {
   const [state, setState] = useState<Person[]>([]);
 
