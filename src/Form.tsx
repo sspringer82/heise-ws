@@ -2,12 +2,11 @@ import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FormPerson } from './Person';
+import usePerson from './usePerson';
 
-type Props = {
-  onSubmit: (person: FormPerson) => void;
-};
+const Form: React.FC = () => {
+  const { handleAdd } = usePerson();
 
-const Form: React.FC<Props> = ({ onSubmit }) => {
   const {
     register,
     reset,
@@ -15,15 +14,13 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
     formState: { errors },
   } = useForm<FormPerson>();
 
-  console.log(errors);
+  function submitHandler(person: FormPerson) {
+    handleAdd(person);
+    reset();
+  }
 
   return (
-    <form
-      onSubmit={handleSubmit((person: FormPerson) => {
-        onSubmit(person);
-        reset();
-      })}
-    >
+    <form onSubmit={handleSubmit(submitHandler)}>
       <div>
         <label>
           Vorname:

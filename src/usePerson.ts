@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Person, { FormPerson } from './Person';
+import { usePersonContext } from './PersonProvider';
 
 type ReturnType = {
   loading: boolean;
@@ -8,18 +9,20 @@ type ReturnType = {
   handleAdd: (newPerson: FormPerson) => void;
 };
 
-export default function usePerson(): ReturnType {
-  const [persons, setPersons] = useState<Person[]>([]);
+export default function usePerson(loadData = false): ReturnType {
+  const [persons, setPersons] = usePersonContext();
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/users')
-      .then((response) => response.json())
-      .then((data) => {
-        setPersons(data);
-        setLoading(false);
-      });
-  }, []);
+    if (loadData) {
+      fetch('http://localhost:3001/users')
+        .then((response) => response.json())
+        .then((data) => {
+          setPersons(data);
+          setLoading(false);
+        });
+    }
+  }, [loadData, setPersons]);
 
   function handleDelete(id: number): void {
     fetch(`http://localhost:3001/users/${id}`, {
