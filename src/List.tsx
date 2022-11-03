@@ -1,3 +1,11 @@
+import {
+  TableContainer,
+  Paper,
+  Table,
+  TableHead,
+  TableRow,
+  TableBody,
+} from '@mui/material';
 import React from 'react';
 import Form from './Form';
 import ListItem from './ListItem';
@@ -17,31 +25,33 @@ const List: React.FC = () => {
   return (
     <>
       <Form onSubmit={handleAdd} />
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Birth date</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>Zip code</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {persons.map((person) => {
-            return (
-              <ListItem
-                person={person}
-                onDelete={handleDelete}
-                key={person.id}
-              />
-            );
-          })}
-        </tbody>
-      </table>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <th>Id</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Birth date</th>
+              <th>Street</th>
+              <th>City</th>
+              <th>Zip code</th>
+              <th></th>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {persons.map((person) => {
+              return (
+                <ListItem
+                  person={person}
+                  onDelete={handleDelete}
+                  key={person.id}
+                />
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   );
 };

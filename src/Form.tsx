@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FormPerson } from './Person';
@@ -29,17 +30,17 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
         {errors.firstName && <div>This field is required</div>}
       </div>
       <div>
-        <label>
-          Nachname:
-          <input
-            type="text"
-            {...register('lastName', {
-              required: true,
-              minLength: 2,
-              maxLength: 10,
-            })}
-          />
-        </label>
+        <TextField
+          label="Nachname:"
+          variant="standard"
+          {...register('lastName', {
+            required: true,
+            minLength: 2,
+            maxLength: 10,
+          })}
+          error={!!errors.lastName}
+        />
+
         {errors.lastName && (
           <div style={{ color: 'red', fontWeight: 'bold' }}>
             This field is required

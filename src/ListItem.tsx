@@ -1,5 +1,7 @@
+import { IconButton, TableCell, TableRow } from '@mui/material';
 import React from 'react';
 import Person from './Person';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 type Props = {
   person: Person;
@@ -8,18 +10,25 @@ type Props = {
 
 const ListItem: React.FC<Props> = ({ person, onDelete }) => {
   return (
-    <tr key={person.id}>
-      <td>{person.id}</td>
-      <td>{person.firstName}</td>
-      <td>{person.lastName}</td>
-      <td>{person.birthdate}</td>
-      <td>{person.street}</td>
-      <td>{person.city}</td>
-      <td>{person.zipCode}</td>
-      <td>
-        <button onClick={() => onDelete(person.id)}>löschen</button>
-      </td>
-    </tr>
+    <TableRow key={person.id}>
+      <TableCell>{person.id}</TableCell>
+      <TableCell>{person.firstName}</TableCell>
+      <TableCell>{person.lastName}</TableCell>
+      <TableCell>{person.birthdate}</TableCell>
+      <TableCell>{person.street}</TableCell>
+      <TableCell>{person.city}</TableCell>
+      <TableCell>{person.zipCode}</TableCell>
+      <TableCell>
+        <IconButton
+          aria-label="delete"
+          disabled
+          color="primary"
+          onClick={() => onDelete(person.id)}
+        >
+          <DeleteIcon />
+        </IconButton>
+      </TableCell>
+    </TableRow>
   );
 };
 
