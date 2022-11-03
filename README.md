@@ -40,6 +40,7 @@ Voraussetzungen:
 - https://developer.mozilla.org/en-US/
 - https://overreacted.io/
 - https://reactjs.org/docs/hooks-rules.html
+- https://tanstack.com/query/v4/docs/overview
 
 # Komponenten
 
