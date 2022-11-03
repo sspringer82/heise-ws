@@ -27,7 +27,7 @@ const Parent: React.FC = () => {
   return (
     <div>
       {state.map((value) => (
-        <Child value={value} onDelete={handleDelete} />
+        <Child value={value} onDelete={handleDelete} key={value} />
       ))}
     </div>
   );

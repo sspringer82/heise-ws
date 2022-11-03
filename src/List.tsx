@@ -1,37 +1,9 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
 import ListItem from './ListItem';
-import Person from './Person';
+import usePerson from './usePerson';
 
 const List: React.FC = () => {
-  const [persons, setPersons] = useState<Person[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    fetch('http://localhost:3001/users')
-      .then((response) => response.json())
-      .then((data) => {
-        setPersons(data);
-        setLoading(false);
-      });
-  }, []);
-
-  function handleDelete(id: number): void {
-    fetch(`http://localhost:3001/users/${id}`, {
-      method: 'DELETE',
-    }).then((response) => {
-      if (response.ok) {
-        setPersons((prevPersons) => {
-          const newPersons = prevPersons.filter(
-            (prevPerson) => prevPerson.id !== id
-          );
-          return newPersons;
-        });
-      } else {
-        alert('Oh no!');
-      }
-    });
-  }
+  const { loading, persons, handleDelete } = usePerson();
 
   if (loading === true) {
     return <div>...lade Daten</div>;
@@ -57,7 +29,9 @@ const List: React.FC = () => {
       </thead>
       <tbody>
         {persons.map((person) => {
-          return <ListItem person={person} onDelete={handleDelete} />;
+          return (
+            <ListItem person={person} onDelete={handleDelete} key={person.id} />
+          );
         })}
       </tbody>
     </table>

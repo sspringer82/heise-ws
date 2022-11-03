@@ -41,6 +41,7 @@ Voraussetzungen:
 - https://overreacted.io/
 - https://reactjs.org/docs/hooks-rules.html
 - https://tanstack.com/query/v4/docs/overview
+- https://plugins.jetbrains.com/plugin/9792-key-promoter-x
 
 # Komponenten
 
