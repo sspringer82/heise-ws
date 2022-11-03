@@ -42,6 +42,12 @@ Voraussetzungen:
 - https://reactjs.org/docs/hooks-rules.html
 - https://tanstack.com/query/v4/docs/overview
 - https://plugins.jetbrains.com/plugin/9792-key-promoter-x
+- https://npmtrends.com/
+- Typsicherheit
+  - sehr rudimentär: https://www.npmjs.com/package/prop-types - zur Laufzeit
+  - auch nicht gut: https://flow.org/ - static typechecker
+  - der "Standard": https://www.typescriptlang.org/ - zur compilezeit
+- React Doku: https://beta.reactjs.org/ (neu)
 
 # Komponenten
 
@@ -79,3 +85,10 @@ Voraussetzungen:
 
 - Wiederverwendbarkeit von "Komponentenlogik"
 - Auslagern von Logik aus einer Komponente
+
+## Architekturpatterns
+
+- CustomHooks - am häufigsten verwendete in modernen Applikationen
+- ContainerComponents
+- HoC (Higher order Components)
+- Render Props
