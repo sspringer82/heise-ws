@@ -17,7 +17,7 @@ type ReturnValue = [
 function usePerson(): ReturnValue {
   const [state, setState] = useState<Person[]>([]);
 
-  function addItem(item) {
+  function addItem(item: Person) {
     setState((prevState) => [...prevSate, item]);
   }
 
