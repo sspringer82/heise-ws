@@ -15,6 +15,8 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
     formState: { errors },
   } = useForm<FormPerson>();
 
+  console.log(errors);
+
   return (
     <form
       onSubmit={handleSubmit((person: FormPerson) => {
@@ -25,27 +27,30 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
       <div>
         <label>
           Vorname:
-          <input type="text" {...register('firstName', { required: true })} />
+          <input
+            type="text"
+            {...register('firstName', { required: 'firstname is required' })}
+          />
         </label>
-        {errors.firstName && <div>This field is required</div>}
+        {errors.firstName && <div>{errors.firstName.message}</div>}
       </div>
       <div>
         <TextField
           label="Nachname:"
           variant="standard"
           {...register('lastName', {
-            required: true,
+            required: 'lastname is required',
             minLength: 2,
             maxLength: 10,
           })}
           error={!!errors.lastName}
+          helperText={errors.lastName?.message}
         />
-
-        {errors.lastName && (
+        {/* {errors.lastName && (
           <div style={{ color: 'red', fontWeight: 'bold' }}>
             This field is required
           </div>
-        )}
+        )} */}
       </div>
       <div>
         <label>
