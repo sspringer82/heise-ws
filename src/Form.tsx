@@ -41,6 +41,51 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
           onChange={handleChange}
         />
       </label>
+      <label>
+        Nachname:
+        <input
+          type="text"
+          name="lastName"
+          value={person.lastName}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Geburtsdatum:
+        <input
+          type="text"
+          name="birthdate"
+          value={person.birthdate}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Straße:
+        <input
+          type="text"
+          name="street"
+          value={person.street}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Stadt:
+        <input
+          type="text"
+          name="city"
+          value={person.city}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        PLZ:
+        <input
+          type="text"
+          name="zipCode"
+          value={person.zipCode}
+          onChange={handleChange}
+        />
+      </label>
       <button type="submit">speichern</button>
       <button type="reset" onClick={() => setPerson(initialPerson)}>
         abbrechen

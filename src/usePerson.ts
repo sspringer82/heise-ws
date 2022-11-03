@@ -46,11 +46,11 @@ export default function usePerson(): ReturnType {
     })
       .then((response) => response.json())
       .then((newPerson) => {
-        setPersons((prevPersons) => {
-          const personsClone = [...prevPersons];
-          personsClone.push(newPerson);
-          return personsClone;
-        });
+        // setPersons((prevPersons) => {
+        //   const personsClone = [...prevPersons];
+        //   personsClone.push(newPerson);
+        //   return personsClone;
+        // });
         setPersons((prevPersons) => [...prevPersons, newPerson]);
       });
   }
