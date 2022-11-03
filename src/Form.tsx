@@ -1,95 +1,86 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
-import Person, { FormPerson } from './Person';
-
-const initialPerson: FormPerson = {
-  firstName: '',
-  lastName: '',
-  birthdate: '',
-  street: '',
-  city: '',
-  zipCode: '',
-};
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { FormPerson } from './Person';
 
 type Props = {
   onSubmit: (person: FormPerson) => void;
 };
 
 const Form: React.FC<Props> = ({ onSubmit }) => {
-  const [person, setPerson] = useState<FormPerson>(initialPerson);
-
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    onSubmit(person);
-    setPerson(initialPerson);
-  }
-
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    setPerson((prevPerson) => ({
-      ...prevPerson,
-      [event.target.name]: event.target.value,
-    }));
-  }
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormPerson>();
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Vorname:
-        <input
-          type="text"
-          name="firstName"
-          value={person.firstName}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Nachname:
-        <input
-          type="text"
-          name="lastName"
-          value={person.lastName}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Geburtsdatum:
-        <input
-          type="text"
-          name="birthdate"
-          value={person.birthdate}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Straße:
-        <input
-          type="text"
-          name="street"
-          value={person.street}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Stadt:
-        <input
-          type="text"
-          name="city"
-          value={person.city}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        PLZ:
-        <input
-          type="text"
-          name="zipCode"
-          value={person.zipCode}
-          onChange={handleChange}
-        />
-      </label>
-      <button type="submit">speichern</button>
-      <button type="reset" onClick={() => setPerson(initialPerson)}>
-        abbrechen
-      </button>
+    <form
+      onSubmit={handleSubmit((person: FormPerson) => {
+        onSubmit(person);
+        reset();
+      })}
+    >
+      <div>
+        <label>
+          Vorname:
+          <input type="text" {...register('firstName', { required: true })} />
+        </label>
+        {errors.firstName && <div>This field is required</div>}
+      </div>
+      <div>
+        <label>
+          Nachname:
+          <input
+            type="text"
+            {...register('lastName', {
+              required: true,
+              minLength: 2,
+              maxLength: 10,
+            })}
+          />
+        </label>
+        {errors.lastName && (
+          <div style={{ color: 'red', fontWeight: 'bold' }}>
+            This field is required
+          </div>
+        )}
+      </div>
+      <div>
+        <label>
+          Geburtsdatum:
+          <input type="text" {...register('birthdate')} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Straße:
+          <input type="text" {...register('street')} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Stadt:
+          <input type="text" {...register('city')} />
+        </label>
+      </div>
+      <div>
+        <label>
+          PLZ:
+          <input type="text" {...register('zipCode')} />
+        </label>
+      </div>
+      <div>
+        <button type="submit">speichern</button>
+        <button
+          type="reset"
+          onClick={() => {
+            reset();
+          }}
+        >
+          abbrechen
+        </button>
+      </div>
     </form>
   );
 };
