@@ -22,14 +22,17 @@ const List: React.FC<{ data: string[] }> = ({ data }) => {
 };
 
 // Higher order Components z.B. https://v5.reactrouter.com/web/api/withRouter
-function withFetch(Component: ReactNode) {
+function withFetch(InnerComp: React.ElementType) {
   async function fetchFn(url: string) {
     const response = await fetch(url);
     return response.json();
   }
-
-  //return <Component fetch={fetchFn} />;
+  return function (props: any) {
+    return <InnerComp {...props} fetch={fetchFn} />;
+  };
 }
+
+// const CompWithFetch = withFetch(<MyDummyComponent />);
 
 // render Props z.B. https://formik.org/docs/overview#the-gist
 type Props = {
