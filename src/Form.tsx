@@ -1,11 +1,13 @@
 import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { FormPerson } from './Person';
 import usePerson from './usePerson';
 
 const Form: React.FC = () => {
   const { handleAdd } = usePerson();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -16,7 +18,12 @@ const Form: React.FC = () => {
 
   function submitHandler(person: FormPerson) {
     handleAdd(person);
+    resetAndGoToList();
+  }
+
+  function resetAndGoToList() {
     reset();
+    navigate('/list');
   }
 
   return (
@@ -75,12 +82,7 @@ const Form: React.FC = () => {
       </div>
       <div>
         <button type="submit">speichern</button>
-        <button
-          type="reset"
-          onClick={() => {
-            reset();
-          }}
-        >
+        <button type="reset" onClick={resetAndGoToList}>
           abbrechen
         </button>
       </div>
