@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem snapshot test 1`] = `
+<DocumentFragment>
+  <table>
+    <tbody>
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+          data-testid="id"
+        >
+          444
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+          data-testid="firstName"
+        >
+          Dorothea
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+          data-testid="lastName"
+        >
+          Hammes
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+          data-testid="birthdate"
+        >
+          1955-11-18T14:22:15.431Z
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+          data-testid="street"
+        >
+          385 Conn Overpass Apt. 740
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+          data-testid="city"
+        >
+          Hackensack
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+          data-testid="zipCode"
+        >
+          98692-7937
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+        >
+          <button
+            aria-label="delete"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root"
+            data-testid="delete-btn"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="DeleteIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+        >
+          <a
+            href="/edit/444"
+          >
+            bearbeiten
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
