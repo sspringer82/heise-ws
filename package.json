@@ -54,5 +54,9 @@
   },
   "devDependencies": {
     "msw": "^0.47.4"
+  },
+  "author": {
+    "name": "Sebastian Springer",
+    "email": "sebastian.springer@maibornwolff.de"
   }
 }
