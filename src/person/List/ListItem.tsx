@@ -23,10 +23,7 @@ const ListItem: React.FC<Props> = ({ person, onDelete }) => {
         <IconButton
           aria-label="delete"
           color="primary"
-          onClick={() => {
-            console.log('click me');
-            onDelete(person.id);
-          }}
+          onClick={() => onDelete(person.id)}
           data-testid="delete-btn"
         >
           <DeleteIcon />

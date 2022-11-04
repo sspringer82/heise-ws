@@ -5,8 +5,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FormPerson } from '../Person';
 import usePerson from '../usePerson';
 
-const Form: React.FC = () => {
-  const { save: handleAdd, getPerson, fetchPerson } = usePerson();
+type Props = {
+  onSubmit: (person: FormPerson) => void;
+};
+const Form: React.FC<Props> = ({ onSubmit }) => {
+  const { save, getPerson, fetchPerson } = usePerson();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
@@ -35,10 +38,10 @@ const Form: React.FC = () => {
     }
   }, [id]);
 
-  function submitHandler(person: FormPerson) {
-    handleAdd(person);
-    resetAndGoToList();
-  }
+  // function submitHandler(person: FormPerson) {
+  //   save(person);
+  //   resetAndGoToList();
+  // }
 
   function resetAndGoToList() {
     reset();
@@ -46,12 +49,16 @@ const Form: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(submitHandler)}>
+    <form onSubmit={handleSubmit((data) => onSubmit(data))}>
       <div>
         <TextField
           label="Vorname:"
           variant="standard"
           InputLabelProps={{ shrink: !!getValues('firstName') }}
+          inputProps={
+            // @ts-ignore
+            { 'data-testid': 'firstName' }
+          }
           {...register('firstName', { required: 'firstname is required' })}
         />
         {errors.firstName && <div>{errors.firstName.message}</div>}
@@ -66,6 +73,10 @@ const Form: React.FC = () => {
             minLength: 2,
             maxLength: 10,
           })}
+          inputProps={
+            // @ts-ignore
+            { 'data-testid': 'lastName' }
+          }
           error={!!errors.lastName}
           helperText={errors.lastName?.message}
         />
@@ -108,7 +119,9 @@ const Form: React.FC = () => {
         />
       </div>
       <div>
-        <button type="submit">speichern</button>
+        <button type="submit" data-testid="submit">
+          speichern
+        </button>
         <button type="reset" onClick={resetAndGoToList}>
           abbrechen
         </button>

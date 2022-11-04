@@ -46,6 +46,7 @@ export default function usePerson(loadData = false): ReturnType {
   }
 
   function save(person: FormPerson) {
+    console.log(person);
     let url = 'http://localhost:3001/users/';
     let method = 'POST';
 
