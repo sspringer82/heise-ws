@@ -12,6 +12,7 @@ import usePerson from './usePerson';
 
 const List: React.FC = () => {
   const { loading, persons, handleDelete } = usePerson(true);
+  console.log('list');
 
   if (loading === true) {
     return <div>...lade Daten</div>;

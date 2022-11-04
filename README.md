@@ -93,3 +93,9 @@ Voraussetzungen:
 - ContainerComponents
 - HoC (Higher order Components)
 - Render Props
+
+# Routing
+
+- BrowserRouter: Standardrouter - den wollt ihr nutzen - HTML5 History API als Basis
+- HashRouter: die alte Welt - Hash Navigation als Basis
+- MemoryRouter: für Testing
