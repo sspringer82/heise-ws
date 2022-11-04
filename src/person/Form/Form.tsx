@@ -2,8 +2,8 @@ import { TextField } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FormPerson } from './Person';
-import usePerson from './usePerson';
+import { FormPerson } from '../Person';
+import usePerson from '../usePerson';
 
 const Form: React.FC = () => {
   const { save: handleAdd, getPerson, fetchPerson } = usePerson();

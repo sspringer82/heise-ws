@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ListItem from './ListItem';
-import usePerson from './usePerson';
+import usePerson from '../usePerson';
 
 const List: React.FC = () => {
   const { loading, persons, handleDelete } = usePerson(true);

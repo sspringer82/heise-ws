@@ -49,6 +49,9 @@ Voraussetzungen:
   - der "Standard": https://www.typescriptlang.org/ - zur compilezeit
 - React Doku: https://beta.reactjs.org/ (neu)
 - https://kentcdodds.com/blog/how-to-use-react-context-effectively
+- Testing
+  - https://jestjs.io
+  - https://testing-library.com/
 
 # Komponenten
 

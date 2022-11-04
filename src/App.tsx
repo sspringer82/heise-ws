@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Form from './Form';
-import List from './List';
-import PersonProvider from './PersonProvider';
+import Form from './person/Form/Form';
+import List from './person/List/List';
+import PersonProvider from './person/PersonProvider';
 
 const App: React.FC = () => {
   return (

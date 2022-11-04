@@ -26,7 +26,7 @@ export default function usePerson(loadData = false): ReturnType {
     } else {
       setLoading(false);
     }
-  }, [loadData, setPersons]);
+  }, [loadData, setPersons, persons]);
 
   function handleDelete(id: number): void {
     fetch(`http://localhost:3001/users/${id}`, {
