@@ -53,6 +53,16 @@ Voraussetzungen:
   - https://jestjs.io
   - https://testing-library.com/
   - https://mswjs.io/
+- Redux
+  - https://redux.js.org/
+  - https://react-redux.js.org/
+  - https://redux-toolkit.js.org/
+  - https://facebook.github.io/flux/docs/in-depth-overview/
+  - https://github.com/redux-utilities/flux-standard-action
+  - Middleware
+    - https://github.com/reduxjs/redux-thunk (Promises)
+    - https://redux-saga.js.org/ (Generators)
+    - https://redux-observable.js.org/ (RxJS)
 
 # Komponenten
 
