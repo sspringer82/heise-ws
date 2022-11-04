@@ -7,6 +7,8 @@ type ReturnType = {
   persons: Person[];
   handleDelete: (id: number) => void;
   handleAdd: (newPerson: FormPerson) => void;
+  getPerson: (id: number) => Person;
+  fetchPerson: (id: number) => Promise<Person>;
 };
 
 export default function usePerson(loadData = false): ReturnType {
@@ -58,10 +60,21 @@ export default function usePerson(loadData = false): ReturnType {
       });
   }
 
+  function getPerson(id: number): Person {
+    return persons.find((person) => person.id === id) as Person;
+  }
+
+  async function fetchPerson(id: number): Promise<Person> {
+    const response = await fetch(`http://localhost:3001/users/${id}`);
+    return response.json();
+  }
+
   return {
     loading,
     persons,
     handleDelete,
     handleAdd,
+    getPerson,
+    fetchPerson,
   };
 }

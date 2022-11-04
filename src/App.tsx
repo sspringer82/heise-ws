@@ -12,6 +12,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Navigate to="/list" />} />
           <Route path="/list" element={<List />} />
           <Route path="/new" element={<Form />} />
+          <Route path="/edit/:id" element={<Form />} />
         </Routes>
       </BrowserRouter>
     </PersonProvider>
