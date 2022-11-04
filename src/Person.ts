@@ -10,4 +10,4 @@ type Person = {
 
 export default Person;
 
-export type FormPerson = Omit<Person, 'id'>;
+export type FormPerson = Omit<Person, 'id'> & { id?: number };

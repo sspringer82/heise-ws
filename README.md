@@ -99,3 +99,23 @@ Voraussetzungen:
 - BrowserRouter: Standardrouter - den wollt ihr nutzen - HTML5 History API als Basis
 - HashRouter: die alte Welt - Hash Navigation als Basis
 - MemoryRouter: für Testing
+
+# Styling
+
+- Inline styling: `<div style={{backgroundColor: 'black'}}>text</div>`
+- CSS import + Klassen (ggf. https://www.npmjs.com/package/classnames)
+
+```ts
+import 'MyComponent.css';
+
+...
+<div className="myFancyClass">test</div>
+```
+
+- SCSS: wie CSS import nur mit SCSS - Voraussetzung. `npm install sass` https://create-react-app.dev/docs/adding-a-sass-stylesheet
+- CSS Modules: Klassenbasiert und scoped https://create-react-app.dev/docs/adding-a-css-modules-stylesheet
+- Bibliotheken
+  - https://styled-components.com/
+  - https://emotion.sh/docs/introduction
+- Utility first CSS Frameworks (https://tailwindcss.com/)
+  - https://tailwindcss.com/docs/guides/create-react-app

@@ -6,7 +6,7 @@ import { FormPerson } from './Person';
 import usePerson from './usePerson';
 
 const Form: React.FC = () => {
-  const { handleAdd, getPerson, fetchPerson } = usePerson();
+  const { save: handleAdd, getPerson, fetchPerson } = usePerson();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
@@ -15,7 +15,17 @@ const Form: React.FC = () => {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormPerson>();
+    getValues,
+  } = useForm<FormPerson>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      birthdate: '',
+      street: '',
+      city: '',
+      zipCode: '',
+    },
+  });
 
   useEffect(() => {
     if (id) {
@@ -38,19 +48,19 @@ const Form: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
       <div>
-        <label>
-          Vorname:
-          <input
-            type="text"
-            {...register('firstName', { required: 'firstname is required' })}
-          />
-        </label>
+        <TextField
+          label="Vorname:"
+          variant="standard"
+          InputLabelProps={{ shrink: !!getValues('firstName') }}
+          {...register('firstName', { required: 'firstname is required' })}
+        />
         {errors.firstName && <div>{errors.firstName.message}</div>}
       </div>
       <div>
         <TextField
           label="Nachname:"
           variant="standard"
+          InputLabelProps={{ shrink: !!getValues('lastName') }}
           {...register('lastName', {
             required: 'lastname is required',
             minLength: 2,
@@ -66,28 +76,36 @@ const Form: React.FC = () => {
         )} */}
       </div>
       <div>
-        <label>
-          Geburtsdatum:
-          <input type="text" {...register('birthdate')} />
-        </label>
+        <TextField
+          label="Geburtsdatum:"
+          variant="standard"
+          InputLabelProps={{ shrink: !!getValues('birthdate') }}
+          {...register('birthdate')}
+        />
       </div>
       <div>
-        <label>
-          Straße:
-          <input type="text" {...register('street')} />
-        </label>
+        <TextField
+          label="Straße:"
+          variant="standard"
+          InputLabelProps={{ shrink: !!getValues('street') }}
+          {...register('street')}
+        />
       </div>
       <div>
-        <label>
-          Stadt:
-          <input type="text" {...register('city')} />
-        </label>
+        <TextField
+          label="Stadt:"
+          variant="standard"
+          InputLabelProps={{ shrink: !!getValues('city') }}
+          {...register('city')}
+        />
       </div>
       <div>
-        <label>
-          PLZ:
-          <input type="text" {...register('zipCode')} />
-        </label>
+        <TextField
+          label="PLZ:"
+          variant="standard"
+          InputLabelProps={{ shrink: !!getValues('zipCode') }}
+          {...register('zipCode')}
+        />
       </div>
       <div>
         <button type="submit">speichern</button>

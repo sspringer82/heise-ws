@@ -6,7 +6,7 @@ type ReturnType = {
   loading: boolean;
   persons: Person[];
   handleDelete: (id: number) => void;
-  handleAdd: (newPerson: FormPerson) => void;
+  save: (newPerson: FormPerson) => void;
   getPerson: (id: number) => Person;
   fetchPerson: (id: number) => Promise<Person>;
 };
@@ -16,13 +16,15 @@ export default function usePerson(loadData = false): ReturnType {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (loadData) {
+    if (loadData && persons.length === 0) {
       fetch('http://localhost:3001/users')
         .then((response) => response.json())
         .then((data) => {
           setPersons(data);
           setLoading(false);
         });
+    } else {
+      setLoading(false);
     }
   }, [loadData, setPersons]);
 
@@ -43,20 +45,35 @@ export default function usePerson(loadData = false): ReturnType {
     });
   }
 
-  function handleAdd(person: FormPerson) {
-    fetch('http://localhost:3001/users', {
-      method: 'POST',
+  function save(person: FormPerson) {
+    let url = 'http://localhost:3001/users/';
+    let method = 'POST';
+
+    if (person.id) {
+      url += person.id;
+      method = 'PUT';
+    }
+
+    fetch(url, {
+      method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(person),
     })
       .then((response) => response.json())
       .then((newPerson) => {
-        // setPersons((prevPersons) => {
-        //   const personsClone = [...prevPersons];
-        //   personsClone.push(newPerson);
-        //   return personsClone;
-        // });
-        setPersons((prevPersons) => [...prevPersons, newPerson]);
+        if (person.id) {
+          setPersons((prevPersons) => {
+            const updatedPersons = prevPersons.map((p) => {
+              if (p.id === person.id) {
+                return newPerson;
+              }
+              return p;
+            });
+            return updatedPersons;
+          });
+        } else {
+          setPersons((prevPersons) => [...prevPersons, newPerson]);
+        }
       });
   }
 
@@ -73,7 +90,7 @@ export default function usePerson(loadData = false): ReturnType {
     loading,
     persons,
     handleDelete,
-    handleAdd,
+    save,
     getPerson,
     fetchPerson,
   };
