@@ -19,6 +19,8 @@ Definiere die folgenden Routen:
   - Lade die zu editierenden Daten
   - Implementiere eine Funktion `handleSave`, die die Daten per HTTP PUT auf dem Server speichert
 
+Einen User auslesen: `http://localhost:3001/users/42`
+
 ```ts
 fetch('http://localhost:3001/users/' + person.id, {
   method: 'PUT',
