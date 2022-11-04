@@ -2,6 +2,8 @@
 
 Integriere den React Router in die Applikation
 
+`npm install react-router-dom`
+
 Definiere die folgenden Routen:
 
 - / => Standardroute - leitet auf /list weiter
